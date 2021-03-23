@@ -224,9 +224,9 @@
         });
 
         var pendingTimes = '';
-        if (rfType === "missed") {
-            pendingTimes = 'Missed Refresh';
-        } else {
+        //if (rfType === "missed") {
+        //    pendingTimes = 'Missed Refresh';
+        //} else {
             var nst = $('#nst').html()
             var nth;
 
@@ -252,7 +252,7 @@
                     pendingTimes += "mini (" + nth + ") pending @ " + addMinutes(lastRf.rfMini, 7 * nth) + "\n";
                 }
             }
-        }
+        //}
 
         if (!$('#pending-output').length) {
             $( optionsBox ).append( '<textarea id="pending-output" rows="4" cols="50">' + pendingTimes + '</textarea>' );
