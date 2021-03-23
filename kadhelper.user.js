@@ -169,7 +169,6 @@
         optionsBox.style = 'border: 1px solid #000';
         $(optionsBox)
             .append('<br><button id="kfl-button" style="display: block;">Kad Food List</button>')
-            .append('<br><button id="pending-button" style="display: block;">Refresh Pending</button>')
             //.append('<br><button id="rf-button" style="display: block;">Manually input refresh times</button>' );
 
         kadContainers
@@ -224,47 +223,40 @@
             }
         });
 
-        $( '#pending-button' ).on( 'click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+        var pendingTimes = '';
+        if (rfType === "missed") {
+            pendingTimes = 'Missed Refresh';
+        } else {
+            var nst = $('#nst').html()
+            var nth;
 
-            var lastRf = localStorage.getItem(KADS_META_KEY) ? JSON.parse(localStorage.getItem(KADS_META_KEY)): [];
+            if (lastRf.rfMain) {
+                var mainMins = convertToMinutes(lastRf.rfMain);
+                var currentMins = convertToMinutes(nst);
+                nth = Math.ceil((currentMins - mainMins) / 7);
 
-            var pendingTimes = '';
-            if (rfType === "missed") {
-                pendingTimes = 'Missed Refresh';
-            } else {
-                var nst = $('#nst').html()
-                var nth;
-
-                if (lastRf.rfMain) {
-                    var mainMins = convertToMinutes(lastRf.rfMain);
-                    var currentMins = convertToMinutes(nst);
-                    nth = Math.ceil((currentMins - mainMins) / 7);
-
-                    if (nth <= 4) {
-                        pendingTimes += "new main @ " + addMinutes(lastRf.rfMain, 28) + "\n";
-                    } else {
-                        pendingTimes += "main (" + (nth - 4) + ") pending @ " + addMinutes(lastRf.rfMain, 7 * nth) + "\n";
-                    }
-                }
-
-                if (lastRf.rfMini) {
-                    var miniMins = convertToMinutes(lastRf.rfMini);
-                    currentMins = convertToMinutes(nst);
-                    nth = Math.ceil((currentMins - miniMins) / 7);
-                    if (nth <= 4) {
-                        pendingTimes += "new mini @ " + addMinutes(lastRf.rfMini, 28) + "\n";
-                    } else {
-                        pendingTimes += "mini (" + nth + ") pending @ " + addMinutes(lastRf.rfMini, 7 * nth) + "\n";
-                    }
+                if (nth <= 4) {
+                    pendingTimes += "new main @ " + addMinutes(lastRf.rfMain, 28) + "\n";
+                } else {
+                    pendingTimes += "main (" + (nth - 4) + ") pending @ " + addMinutes(lastRf.rfMain, 7 * nth) + "\n";
                 }
             }
 
-            if (!$('#pending-output').length) {
-                $( this ).after( '<textarea id="pending-output" rows="4" cols="50">' + pendingTimes + '</textarea>' );
+            if (lastRf.rfMini) {
+                var miniMins = convertToMinutes(lastRf.rfMini);
+                currentMins = convertToMinutes(nst);
+                nth = Math.ceil((currentMins - miniMins) / 7);
+                if (nth <= 4) {
+                    pendingTimes += "new mini @ " + addMinutes(lastRf.rfMini, 28) + "\n";
+                } else {
+                    pendingTimes += "mini (" + nth + ") pending @ " + addMinutes(lastRf.rfMini, 7 * nth) + "\n";
+                }
             }
-        })
+        }
+
+        if (!$('#pending-output').length) {
+            $( optionsBox ).append( '<textarea id="pending-output" rows="4" cols="50">' + pendingTimes + '</textarea>' );
+        }
 
         $( '#rf-button' ).on( 'click', function (e) {
             e.preventDefault();
