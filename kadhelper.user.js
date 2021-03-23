@@ -13,8 +13,9 @@
 
 /* TODO:
  - when kads remained from last refresh, do not count them in new refresh
- - Account for late refreshes (kads that refresh 30s or more past the expected time usually reset to the expected time, so the next expected refresh would be 28 min from the old expected time)
  - enable manual rf inputs
+ - partially missed refreshes should not count as refresh missed
+ - Account for late refreshes (kads that refresh 30s or more past the expected time usually reset to the expected time, so the next expected refresh would be 28 min from the old expected time)
  - enable multiple mini clocks
 */
 (function() {
@@ -310,3 +311,4 @@
 })();
 
 
+    

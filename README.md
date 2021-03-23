@@ -14,4 +14,6 @@ You can see inventory feedable kads highlighted in red. In order to use this fun
 
 You can see SDB feedable kads highlighted in blue. In order to use this function, you need to visit each page in your SDB under the "Food" search. It may be a little time consuming but you'll save a lot of trouble ;)
 
+Clicking a kad will automatically copy the food name to your clipboard. Just paste into your already-open wizard!
+
 Use this script in conjunction with diceroll's [search helper](https://github.com/diceroll123/NeoSearchHelper) to get the best results with SDB feeding.
