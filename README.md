@@ -1,5 +1,7 @@
 # Features
 
+This script is neo-legal in the sense that there are no auto-refreshes or autoclicking. However, some might consider kad highlighting an unfair advantage. Use at your own risk :) The timekeeping version of the script is certainly safe, though.
+
 ## Feed highlighting
 
 **You can see inventory feedable kads highlighted in red.** In order to use this function, you need to visit your inventory to allow the script to sync with your inventory.
