@@ -5,8 +5,6 @@
 // @description  try to take over the world!
 // @author       You
 // @match        http://www.neopets.com/games/kadoatery*
-// @match        http://www.neopets.com/inventory.phtml*
-// @match        http://www.neopets.com/safetydeposit.phtml*
 // @grant        none
 // ==/UserScript==
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
@@ -21,16 +19,12 @@
 */
 (function() {
     'use strict';
-    var INV_KEY = 'ik';
-    var SDB_KEY = 'sk';
     var KADS_KEY = 'kk';
     var KADS_META_KEY = 'kmk';
     var MAX_KADS = 20;
     var MAX_MINI = 3;
     var MAIN_STR = "main";
     var MINI_STR = "mini";
-    var invMap = {};
-    var sdbMap = localStorage.getItem(SDB_KEY) ? JSON.parse(localStorage.getItem(SDB_KEY)): {};
     var kadsMap = localStorage.getItem(KADS_KEY) ? JSON.parse(localStorage.getItem(KADS_KEY)): {};
     var lastRf = localStorage.getItem(KADS_META_KEY) ? JSON.parse(localStorage.getItem(KADS_META_KEY)): {};
     var kadsMeta = {};
