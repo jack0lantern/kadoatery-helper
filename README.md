@@ -8,7 +8,7 @@ Other similar tools like Search helper (referenced below) don't seem to bother T
 
 **You can see inventory feedable kads highlighted in red.** In order to use this function, you need to visit your inventory to allow the script to sync with your inventory.
 
-**You can see SDB feedable kads highlighted in blue.** In order to use this function, you need to visit each page in your SDB under the "Food" search to sync with the script. It may be a little time consuming but you'll save a lot of trouble ;)
+**You can see SDB feedable kads highlighted in blue.** In order to use this function, you need to visit each page in your SDB under the "Food" search to sync with the script. It may be a little time consuming but you'll save a lot of trouble ;) From time to time, your SDB will get out of sync with the script (if you removed an item it may still register as inside your SDB). If this happens, click the "Resync" button at your SDB and visit each food page again.
 
 Clicking a kad will automatically copy the food name to your clipboard. Just paste into your already-open shop wizard!
 

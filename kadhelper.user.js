@@ -2,7 +2,7 @@
 // @name         Kad helper
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  Highlight kads you can quickly feed and timekeep
 // @author       You
 // @match        http://www.neopets.com/games/kadoatery*
 // @match        http://www.neopets.com/inventory.phtml*
@@ -298,6 +298,12 @@
     }
     if (document.URL.search("www.neopets.com/safetydeposit.phtml") >= 0) {
         var sdbTable = $($('.content').find('table')[3]);
+        var resyncButton = document.createElement('button');
+        resyncButton.innerHTML = 'Resync';
+        $(resyncButton).on("click", function() {
+            localStorage.removeItem(SDB_KEY);
+        })
+        $('input[value="Find"]').after(resyncButton)
         sdbTable.find('td:nth-child(2)').each(function(k, v) {
             var itemMatch = v.innerHTML.match(/<b>(.+?)(<|$)/);
             if (itemMatch) {
