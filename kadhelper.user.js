@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Kad helper
+// @name         Kad Timekeeper
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  Kad timekeeper
 // @author       You
 // @match        http://www.neopets.com/games/kadoatery*
 // @grant        none
