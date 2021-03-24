@@ -38,15 +38,6 @@
     var rfTime = $('#nst').html();
     var epochTime = new Date().getTime();
 
-    function copy(text) {
-        var copyText = document.createElement('input');
-        copyText.value = text;
-        $('body').append(copyText);
-        copyText.select();
-        document.execCommand("copy");
-        copyText.parentNode.removeChild(copyText);
-    }
-
     function formatMinsOnly(ts) {
         return ':' + ts.split(':')[1];
     }
@@ -76,21 +67,6 @@
     }
 
     if (document.URL.search("http://www.neopets.com/games/kadoatery") >= 0) {
-        function highlightItems(cell, itemName) {
-             $(cell).on("mousedown", function(e) {
-                copy(itemName);
-                $(cell).css('border-width', '5px');
-            })
-
-            invMap = JSON.parse(localStorage.getItem(INV_KEY));
-            if (itemName in invMap) {
-                $(cell).css('background-color', '#f00');
-            }
-            else if (itemName in sdbMap) {
-                $(cell).css('background-color', '#0ff');
-                copy(itemName);
-            }
-        }
         console.log("Running kad helper");
         var kadContainers = $('.content').find('table');
         var newKads = {};
@@ -104,7 +80,6 @@
             newKads[kadName] = isFed ? null : itemName;
 
             if (!isFed) {
-                highlightItems(v, itemName);
                 foods.push(itemName);
             }
         })
@@ -260,55 +235,6 @@
         if (!$('#pending-output').length) {
             $( optionsBox ).append( '<textarea id="pending-output" rows="4" cols="50">' + pendingTimes + '</textarea>' );
         }
-
-        $( '#rf-button' ).on( 'click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-
-        })
-
-    }
-    if (document.URL.search("www.neopets.com/inventory.phtml") >= 0) {
-        var invTable = $($('.inventory')[0]);
-        if (invTable && invTable.length) {
-
-        invTable.find('td').each(function(k, v) {
-            var itemMatch = v.innerHTML.match(/<br>(.+?)(<|$)/);
-            if (itemMatch) {
-                var itemName = itemMatch[1];
-                invMap[itemName] = 1;
-            }
-        })
-        localStorage.setItem(INV_KEY, JSON.stringify(invMap));
-        } else {
-          setTimeout(function() {
-            invTable = $('#tableRowsId');
-            invTable.find('.item-name').each(function(k, v) {
-            var itemMatch = v.innerHTML;
-
-            if (itemMatch) {
-                invMap[itemMatch] = 1;
-            }
-        })
-              localStorage.setItem(INV_KEY, JSON.stringify(invMap));
-
-          }, 2000)
-        }
-    }
-    if (document.URL.search("www.neopets.com/safetydeposit.phtml") >= 0) {
-        var sdbTable = $($('.content').find('table')[3]);
-        sdbTable.find('td:nth-child(2)').each(function(k, v) {
-            var itemMatch = v.innerHTML.match(/<b>(.+?)(<|$)/);
-            if (itemMatch) {
-                var itemName = itemMatch[1];
-                sdbMap[itemName] = +sdbTable.find('td:nth-child(5)')[k].innerHTML.match(/<b>(.+?)(<|$)/)[1];
-            }
-        })
-        localStorage.setItem(SDB_KEY, JSON.stringify(sdbMap));
-    }
-    if (document.URL.search("www.neopets.com/market.phtml?") >= 0) {
-        $("[name='criteria']").val("exact");
     }
 })();
 
