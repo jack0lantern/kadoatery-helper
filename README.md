@@ -30,3 +30,6 @@ Use this script in conjunction with diceroll's [search helper](https://github.co
 
 1. Install the Tampermonkey extension or addon
 2. Copy and paste the code from the kadhelper.user.js file to a new Tampermonkey script
+
+# Contribute
+I'm sure sure I'll have time to implement all the above future features. I have opened up issues corresponding to them, so if you want to develop them and raise a pull request, you are welcome to ^^
