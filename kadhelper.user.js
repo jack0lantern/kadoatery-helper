@@ -260,14 +260,6 @@
         if (!$('#pending-output').length) {
             $( optionsBox ).append( '<textarea id="pending-output" rows="4" cols="50">' + pendingTimes + '</textarea>' );
         }
-
-        $( '#rf-button' ).on( 'click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-
-        })
-
     }
     if (document.URL.search("www.neopets.com/inventory.phtml") >= 0) {
         var invTable = $($('.inventory')[0]);
