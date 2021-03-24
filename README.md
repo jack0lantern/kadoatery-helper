@@ -29,7 +29,7 @@ As of now, this only tracks the latest main and mini that refreshed.
 # Installation
 
 1. Install the Tampermonkey extension or addon
-2. Copy and paste the code from the kadhelper.user.js file to a new Tampermonkey script
+2. [Click here.](https://github.com/jack0lantern/kadoatery-helper/raw/main/kadhelper.user.js) Save the script.
 
 # Contribute
 I'm not sure I'll have time to implement all the above future features. I have opened up each corresponding issue. If you want to develop them, just assign the issue to yourself and raise a pull request ^^
