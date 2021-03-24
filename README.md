@@ -4,7 +4,7 @@
 
 If you refresh the [kadoatery](http://www.neopets.com/games/kadoatery/index.phtml) when new hungry kads show, **the script automatically registers the refresh** as either a "main" (all the kads refreshed) or a "mini" (only the last 1-3 refreshed). It grabs the time from the NST clock and computes the next refresh. You can see the time of the next refresh by clicking the "Kad Food List" button, as well as the foods that showed on the refresh.
 
-If a refresh might have happened, but didn't, *you can see the refresh pending time below the Kad Food List button.*
+If a refresh might have happened, but didn't, **you can see the refresh pending time below the Kad Food List button.**
 
 As of now, this only tracks the latest main and mini that refreshed. 
 
