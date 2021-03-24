@@ -31,5 +31,8 @@ As of now, this only tracks the latest main and mini that refreshed.
 1. Install the Tampermonkey extension or addon
 2. [Click here.](https://greasyfork.org/en/scripts/423914-kad-helper) Install the script. Keep in mind there may be updates available!
 
+If you're feeling iffy about feed highlighting, you can get a version of the script that only has timekeeping capabilities. [https://greasyfork.org/en/scripts/423920-kad-timekeeper](https://greasyfork.org/en/scripts/423920-kad-timekeeper)
+
+
 # Contribute
 I'm not sure I'll have time to implement all the above future features. I have opened up each corresponding issue. If you want to develop them, just assign the issue to yourself and raise a pull request ^^
