@@ -2,6 +2,8 @@
 
 This script is neo-legal in the sense that there are no auto-refreshes or autoclicking. However, some might consider kad highlighting an unfair advantage. Use at your own risk :) The timekeeping version of the script is certainly safe, though.
 
+Other similar tools like Search helper (referenced below) don't seem to bother TNT though. Just sayin
+
 ## Feed highlighting
 
 **You can see inventory feedable kads highlighted in red.** In order to use this function, you need to visit your inventory to allow the script to sync with your inventory.
@@ -26,6 +28,7 @@ As of now, this only tracks the latest main and mini that refreshed.
 * Multiple mini clocks
 * Timing alarms (some sound when it's time to refresh)
 * Reset late refreshes (kads that refresh 30s or more past the expected time usually reset to the expected time, so the next expected refresh would be 28 min from the old expected time)
+* robust SDB tracking (tracking item removal/addition)
 * Lots of bug fixes... not really a feature but eh
 
 # Installation
