@@ -10,6 +10,7 @@
 // @grant        none
 // ==/UserScript==
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
+// if using greasemonkey, move the above line up one ^
 
 /* TODO:
  - when kads remained from last refresh, do not count them in new refresh
@@ -32,6 +33,7 @@
     var sdbMap = localStorage.getItem(SDB_KEY) ? JSON.parse(localStorage.getItem(SDB_KEY)): {};
     var kadsMap = localStorage.getItem(KADS_KEY) ? JSON.parse(localStorage.getItem(KADS_KEY)): {};
     var lastRf = localStorage.getItem(KADS_META_KEY) ? JSON.parse(localStorage.getItem(KADS_META_KEY)): {};
+    var kadsMeta = {};
     var foods = [];
     var rfTime = $('#nst').html();
     var epochTime = new Date().getTime();
@@ -151,7 +153,7 @@
         }
 
         if (rfType && rfType !== "missed") {
-            var kadsMeta = {
+            kadsMeta = {
                 "foods": foods,
             }
             if (rfType === MAIN_STR) {
@@ -231,26 +233,26 @@
             var nst = $('#nst').html()
             var nth;
 
-            if (lastRf.rfMain) {
-                var mainMins = convertToMinutes(lastRf.rfMain);
+            if (kadsMeta.rfMain || lastRf.rfMain) {
+                var mainMins = convertToMinutes(kadsMeta.rfMain || lastRf.rfMain);
                 var currentMins = convertToMinutes(nst);
                 nth = Math.ceil((currentMins - mainMins) / 7);
 
                 if (nth <= 4) {
-                    pendingTimes += "new main @ " + addMinutes(lastRf.rfMain, 28) + "\n";
+                    pendingTimes += "new main @ " + addMinutes(kadsMeta.rfMain || lastRf.rfMain, 28) + "\n";
                 } else {
-                    pendingTimes += "main (" + (nth - 4) + ") pending @ " + addMinutes(lastRf.rfMain, 7 * nth) + "\n";
+                    pendingTimes += "main (" + (nth - 4) + ") pending @ " + addMinutes(kadsMeta.rfMain || lastRf.rfMain, 7 * nth) + "\n";
                 }
             }
 
-            if (lastRf.rfMini) {
-                var miniMins = convertToMinutes(lastRf.rfMini);
+            if (kadsMeta.rfMini || lastRf.rfMini) {
+                var miniMins = convertToMinutes(kadsMeta.rfMini || lastRf.rfMini);
                 currentMins = convertToMinutes(nst);
                 nth = Math.ceil((currentMins - miniMins) / 7);
                 if (nth <= 4) {
-                    pendingTimes += "new mini @ " + addMinutes(lastRf.rfMini, 28) + "\n";
+                    pendingTimes += "new mini @ " + addMinutes(kadsMeta.rfMini || lastRf.rfMini, 28) + "\n";
                 } else {
-                    pendingTimes += "mini (" + nth + ") pending @ " + addMinutes(lastRf.rfMini, 7 * nth) + "\n";
+                    pendingTimes += "mini (" + nth + ") pending @ " + addMinutes(kadsMeta.rfMini || lastRf.rfMini, 7 * nth) + "\n";
                 }
             }
         //}
@@ -311,4 +313,3 @@
 })();
 
 
-    
