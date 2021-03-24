@@ -2,7 +2,7 @@
 
 Do you ever wish you could instantly know which kads you could feed from inventory or SDB? Or have a hard time tracking the exact time of the refreshes? Well wish no more. This script does it for you.
 
-This script is neo-legal in the sense that there are no auto-refreshes or autoclicking. However, some might consider kad highlighting an unfair advantage, though technically it isn't cheating. Use at your own risk :) Other similar tools like Search helper (referenced below) don't seem to bother TNT. Just sayin
+This script is neo-legal in the sense that there are no auto-refreshes or autoclicking. However, some might consider kad highlighting an unfair advantage. Use at your own risk :) 
 
 The timekeeping version of the script is certainly safe, though.
 
